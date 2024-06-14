@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SchemeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,9 @@ Route::get('/', function () {
 Route::controller(AuthController::class)->group( function () {
     Route::get('/login', 'login_view')->name('login');
     Route::get('/registration', 'registration_view')->name('registration');
+});
+
+// SchemeController routes
+Route::controller(SchemeController::class)->group( function() {
+    Route::get('/schemes', 'index')->name('all-schemes');
 });

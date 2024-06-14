@@ -3,10 +3,9 @@
     <div class="w-screen h-screen flex justify-center items-center">
         <form action="" method="post">
             @csrf
-            <div class="w-96 rounded shadow-xl p-4 border bg-sky-100">
-                
-                <div class="w-full mb-5">
-                    <h1 class="text-3xl font-semibold">Registration</h1>
+            <div class="w-96 rounded shadow-xl p-5 border bg-sky-100">
+                <div class="w-full mb-5 mt-2">
+                    <h1 class="text-3xl text-sky-700 font-semibold">Registration</h1>
                 </div>
                 <div>
                     <label for="" class="w-full">Full Name</label>
@@ -25,16 +24,14 @@
                     <label for="" class="w-full">Password</label>
                     <x-utils.password-input :name="'password'" :placeholder="'password'"/>
                 </div>
-                <div>
+                <div class="mb-3">
                     <label for="" class="w-full">Confirm password</label>
                     <x-utils.password-input :name="'confirmPassword'" :placeholder="'confirm password'"/>
                 </div>
-                
-                
                 <x-utils.blue-button>Login</x-utils.blue-button>
-                <p class="text-gray-500 py-2">
-                    create an account 
-                    <a href="{{ route('registration') }}" class="text-gray-600">registration</a>
+                <p class="text-gray-500 py-3">
+                    already have an account! 
+                    <a href="{{ route('login') }}" class="text-gray-600">login</a>
                 </p>
             </div>
         </form>
