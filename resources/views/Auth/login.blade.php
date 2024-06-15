@@ -9,12 +9,12 @@
                 </div>
                 <div>
                     <label for="" class="w-full">Email ID</label>
-                    <x-utils.email-input :name="'email'" :placeholder="'email id/user id'"/>
+                    <x-utils.email-input name="email" placeholder="email id/user id"/>
                     <x-utils.error-message :message="'error'"/>
                 </div>
                 <div class="mb-3">
                     <label for="" class="w-full">Password</label>
-                    <x-utils.password-input :name="'password'" :placeholder="'password'"/>
+                    <x-utils.password-input name="password" placeholder="password"/>
                 </div>
                 <x-utils.blue-button>Login</x-utils.blue-button>
                 <p class="text-gray-500 py-2">

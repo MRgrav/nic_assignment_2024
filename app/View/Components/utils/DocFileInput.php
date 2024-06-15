@@ -6,15 +6,16 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ErrorMessage extends Component
+class DocFileInput extends Component
 {
     /**
      * Create a new component instance.
      */
-    // public $message;
-    public function __construct()
+    public $accept;
+    public function __construct($accept)
     {
         //
+        $this->accept = $accept;
     }
 
     /**
@@ -22,6 +23,6 @@ class ErrorMessage extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.utils.error-message');
+        return view('components.utils.doc-file-input');
     }
 }

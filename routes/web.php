@@ -22,7 +22,9 @@ Route::get('/', function () {
 // AuthController routes
 Route::controller(AuthController::class)->group( function () {
     Route::get('/login', 'login_view')->name('login');
+    Route::post('/login', 'login')->name('new-login');
     Route::get('/registration', 'registration_view')->name('registration');
+    Route::post('/registration', 'registration')->name('new-registration');
 });
 
 // SchemeController routes

@@ -1,34 +1,58 @@
 <x-layouts.body>
 
     <div class="w-screen h-screen flex justify-center items-center">
-        <form action="" method="post">
+        <form action="{{ route('new-registration') }}" method="post">
             @csrf
             <div class="w-96 rounded shadow-xl p-5 border bg-sky-100">
-                <div class="w-full mb-5 mt-2">
+                <div class="w-full mb-5">
                     <h1 class="text-3xl text-sky-700 font-semibold">Registration</h1>
                 </div>
                 <div>
-                    <label for="" class="w-full">Full Name</label>
-                    <x-utils.text-input :name="'name'" :placeholder="'full name'"/>
+                    <label for="" class="w-full text-sm">Full Name</label>
+                    <x-utils.text-input name="name" placeholder="full name" autocomplete="off"/>
+                    @error('name')
+                        <x-utils.error-message>
+                            {{ $message }}
+                        </x-utils.error-message>
+                    @enderror
                 </div>
                 <div>
-                    <label for="" class="w-full">Phone No.</label>
-                    <x-utils.phone-input :name="'phone'" :placeholder="'full name'"/>
+                    <label for="" class="w-full text-sm">Phone No.</label>
+                    <x-utils.phone-input name="phone" placeholder="full name" autocomplete="off"/>
+                    @error('phone')
+                        <x-utils.error-message>
+                            {{ $message }}
+                        </x-utils.error-message>
+                    @enderror
                 </div>
                 <div>
-                    <label for="" class="w-full">Email ID</label>
-                    <x-utils.email-input :name="'email'" :placeholder="'email id/user id'"/>
-                    <x-utils.error-message :message="'error'"/>
+                    <label for="" class="w-full text-sm">Email ID</label>
+                    <x-utils.email-input name="email" placeholder="email id/user id" autocomplete="off"/>
+                    @error('email')
+                        <x-utils.error-message>
+                            {{ $message }}
+                        </x-utils.error-message>
+                    @enderror
                 </div>
                 <div>
-                    <label for="" class="w-full">Password</label>
-                    <x-utils.password-input :name="'password'" :placeholder="'password'"/>
+                    <label for="" class="w-full text-sm">Password</label>
+                    <x-utils.password-input name="password" placeholder="password"/>
+                    @error('password')
+                        <x-utils.error-message>
+                            {{ $message }}
+                        </x-utils.error-message>
+                    @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="" class="w-full">Confirm password</label>
-                    <x-utils.password-input :name="'confirmPassword'" :placeholder="'confirm password'"/>
+                    <label for="" class="w-full text-sm">Confirm password</label>
+                    <x-utils.password-input name="confirmPassword" placeholder="confirm password"/>
+                    @error('confirmPassword')
+                        <x-utils.error-message>
+                            {{ $message }}
+                        </x-utils.error-message>
+                    @enderror
                 </div>
-                <x-utils.blue-button>Login</x-utils.blue-button>
+                <x-utils.blue-button type="submit">Login</x-utils.blue-button>
                 <p class="text-gray-500 py-3">
                     already have an account! 
                     <a href="{{ route('login') }}" class="text-gray-600">login</a>

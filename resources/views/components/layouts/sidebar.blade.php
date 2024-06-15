@@ -14,11 +14,11 @@
         <div>
             <div class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
                 <i class="fa-solid fa-gauge me-2 my-auto"></i>
-                <a href="">Dashboard</a>
+                <a href="{{ url('/') }}">Dashboard</a>
             </div>
             <div class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
                 <i class="fa-solid fa-file-lines me-2 my-auto"></i>
-                <a href="">Schemes</a>
+                <a href="{{ route('all-schemes') }}">Schemes</a>
             </div>
             <div class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
                 <i class="fa-solid fa-user me-2 my-auto"></i>
