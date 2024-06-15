@@ -12,22 +12,22 @@
         </div>
         
         <ul>
-            <li class="flex mb-3 p-2 hover:bg-sky-300 hover:text-blue-700 rounded">
-                <a href="{{ url('/') }}" class="w-full">
-                    <i class="fa-solid fa-gauge me-2 my-auto"></i>
-                    Dashboard
+            <li class="flex mb-3 p-2 hover:bg-sky-300 hover:text-blue-700 rounded  @if (Route::currentRouteName() === 'home') bg-sky-300 @endif">
+                <a href="{{ route('home') }}" class="w-full">
+                    <i class="fa-solid fa-gauge me-2 my-auto sm:text-2xl"></i>
+                    <span class="md:inline-block sm:hidden">Dashboard</span>
                 </a>
             </li>
-            <li class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
+            <li class="flex mb-3  p-2 hover:bg-sky-300 hover:text-blue-700 rounded  @if (Route::currentRouteName() === 'all-schemes') bg-sky-300 @endif">
                 <a href="{{ route('all-schemes') }}" class="w-full">
-                    <i class="fa-solid fa-file-lines me-2 my-auto"></i>
-                    Schemes
+                    <i class="fa-solid fa-file-lines me-2 my-auto sm:text-2xl"></i>
+                    <span class="md:inline-block sm:hidden">Schemes</span>
                 </a>
             </li>
-            <li class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
+            <li class="flex mb-3 p-2 hover:bg-sky-300 hover:text-blue-700 rounded">
                 <a href="" class="w-full">
-                    <i class="fa-solid fa-user me-2 my-auto"></i>
-                    Profile
+                    <i class="fa-solid fa-user me-2 my-auto sm:text-2xl"></i>
+                    <span class="md:inline-block sm:hidden">Profile</span>
                 </a>
             </li>
         </ul>
@@ -35,14 +35,10 @@
         <ul class="mb-4">
             <li class="flex hover:bg-red-100 rounded rounded-lg text-red-900 text-semibold p-3 py-2">
                 <a href="{{ route('logout') }}" class="w-full">
-                    <i class="fa-solid fa-power-off me-2 my-auto"></i>
-                    Logout
+                    <i class="fa-solid fa-power-off me-2 my-auto sm:text-xl"></i>
+                    <span class="sm:hidden">Logout</span>
                 </a>
             </li>
         </ul>
     </div>
 </aside>
-
-<script>
-
-</script>

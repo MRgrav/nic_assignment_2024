@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SchemeController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,10 @@ Route::controller(AuthController::class)->group( function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('test');
-    })->name('home');
+    // Route::get('/', function () {
+        // return view('test');
+    // })->name('home');
+    Route::get('/', [DashboardController::class, 'index'])->name('home');
 
    // SchemeController routes
     Route::controller(SchemeController::class)->group( function() {
