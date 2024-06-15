@@ -15,10 +15,6 @@ use App\Http\Controllers\SchemeController;
 |
 */
 
-Route::get('/', function () {
-    return view('test');
-})->name('home')->middleware(['auth']);
-
 // AuthController routes
 Route::controller(AuthController::class)->group( function () {
     Route::get('/login', 'login_view')->name('login');
@@ -28,7 +24,15 @@ Route::controller(AuthController::class)->group( function () {
     Route::get('/logout', 'logout')->name('logout');
 });
 
-// SchemeController routes
-Route::controller(SchemeController::class)->group( function() {
-    Route::get('/schemes', 'index')->name('all-schemes');
-})->middleware(['auth']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('test');
+    })->name('home');
+
+   // SchemeController routes
+    Route::controller(SchemeController::class)->group( function() {
+        Route::get('/schemes', 'index')->name('all-schemes');
+        Route::get('/schemes/export', 'export')->name('export-schemes');
+        Route::post('/schemes/import', 'import')->name('import-schemes');
+    }); 
+});

@@ -7,31 +7,42 @@
 
         <div class="flex flex-col items-center mt-4">
             <img src="https://cdn.pixabay.com/photo/2023/01/28/20/23/ai-generated-7751688_640.jpg" alt="" class="border border-blue-500 rounded-full mb-3 w-[100px] w-[100px] md:w-[100px] md:h-[100px] sm:w-[44px] sm:w-[44px]">
-            <p class="text-center text-md mb-1 font-semibold sm:hidden md:block">name</p>
-            <p class="text-center text-sm mb-1 font-light sm:hidden md:block">email@email.com</p>
+            <p class="text-center text-md mb-1 font-semibold sm:hidden md:block">{{ Auth::user()->name }}</p>
+            <p class="text-center text-sm mb-1 font-light sm:hidden md:block">{{ Auth::user()->email }}</p>
         </div>
         
-        <div>
-            <div class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
-                <i class="fa-solid fa-gauge me-2 my-auto"></i>
-                <a href="{{ url('/') }}">Dashboard</a>
-            </div>
-            <div class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
-                <i class="fa-solid fa-file-lines me-2 my-auto"></i>
-                <a href="{{ route('all-schemes') }}">Schemes</a>
-            </div>
-            <div class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
-                <i class="fa-solid fa-user me-2 my-auto"></i>
-                <a href="">Profile</a>
-            </div>
-        </div>
+        <ul>
+            <li class="flex mb-3 p-2 hover:bg-sky-300 hover:text-blue-700 rounded">
+                <a href="{{ url('/') }}" class="w-full">
+                    <i class="fa-solid fa-gauge me-2 my-auto"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
+                <a href="{{ route('all-schemes') }}" class="w-full">
+                    <i class="fa-solid fa-file-lines me-2 my-auto"></i>
+                    Schemes
+                </a>
+            </li>
+            <li class="flex mb-3 p-2 hover:bg-sky-100 hover:text-blue-700 rounded">
+                <a href="" class="w-full">
+                    <i class="fa-solid fa-user me-2 my-auto"></i>
+                    Profile
+                </a>
+            </li>
+        </ul>
         <div></div>
-        <div class="mb-4">
-            <div class="flex bg-red-200 hover:bg-red-300 shadow-md rounded rounded-lg text-red-900 text-semibold p-3 py-2">
-                {{-- <img src="{{ asset('assets/icons/log-out.svg') }}" alt="" width="24" class="me-2 text-green-400"> --}}
-                <i class="fa-solid fa-power-off me-2 my-auto"></i>
-                <a href="{{ route('logout') }}">Logout</a>
-            </div>
-        </div>
+        <ul class="mb-4">
+            <li class="flex hover:bg-red-100 rounded rounded-lg text-red-900 text-semibold p-3 py-2">
+                <a href="{{ route('logout') }}" class="w-full">
+                    <i class="fa-solid fa-power-off me-2 my-auto"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
     </div>
 </aside>
+
+<script>
+
+</script>
