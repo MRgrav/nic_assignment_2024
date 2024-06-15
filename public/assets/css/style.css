@@ -1,0 +1,56 @@
+/* #excelPreview {
+
+}
+
+#excelPreview tr:first-child td {
+    background: gray;
+}
+
+#excelPreview td {
+    padding: 0.25rem;
+} */
+
+[class^="sjs-"][class$="1"] {
+    /* Styles for classes ending with '1' */
+    /* Example styles */
+    background-color: lightblue;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+[class^="sjs-"]:not([class$="1"]) {
+    /* Styles for classes not ending with '1' */
+    /* Example styles */
+    background-color: lightgreen;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+
+/* Example CSS for preview container */
+#excelPreview {
+    margin-top: 16px;
+    border: 1px solid #ddd;
+    padding: 16px;
+    background-color: #f9f9f9;
+    overflow-x: auto;
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto;
+}
+
+#excelPreview table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#excelPreview table th,
+#excelPreview table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#excelPreview table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}

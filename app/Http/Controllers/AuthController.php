@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -18,11 +21,34 @@ class AuthController extends Controller
 
     // login existing admin
     public function login(Request $request) {
-        dd($request);
+        //validation of registration form
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required' => 'The email address is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'password.required' => 'The password is required.',
+        ]);
+
+        $user = User::where('email', $request->input('email'))->first();
+
+        // auto login after successfull registration
+        if (Auth::attempt( $request->only('email','password') )) {
+            return redirect()->route('home');
+        }
+        // if (Auth::attempt($credentials)) {
+        //     $request->session()->regenerate();
+
+        //     return redirect()->intended('/dashboard');
+        // }
+
+        return back();
     }
 
     // new admin registration
     public function registration (Request $request) {
+        //validation of registration form
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
@@ -41,6 +67,31 @@ class AuthController extends Controller
             'confirmPassword.same' => 'The passwords do not match.',
         ]);
         
+        // new user creation with User model
+        $isUser = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'password' => bcrypt($request->input('password')),      // encryption of password
+        ]);
+
+        if ( !$isUser ) {
+            return back();
+        }
+
+        // auto login after successfull registration
+        if (Auth::attempt( $request->only('email','password') )) {
+            return redirect()->route('home');
+        }
+
+        return redirect()->back()->withErrors($request)->withInput();
+    }
+
+    public function logout() {
+        Session::flush();
+        Auth::logout();
+
+        return redirect()->route('login');
     }
 }
 

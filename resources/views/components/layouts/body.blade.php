@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="{{ asset('assets/js/tailwind-css-3.4.4.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/icons/fontawesome6/css/all.min.css') }}">
+    <!-- use version 0.20.2 -->
+    <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+
     <title>NIC_LARAVEL</title>
     <script>
         tailwind.config = {

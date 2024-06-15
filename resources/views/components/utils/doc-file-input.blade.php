@@ -1,6 +1,6 @@
 <input 
     type="file" 
-    name="" 
-    id=""
+    name="{{ $name ?? '' }}" 
+    id="{{ $id ?? '' }}"
     accept="{{ $accept ?? '' }}"
     class="">

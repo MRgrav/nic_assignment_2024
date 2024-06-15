@@ -30,7 +30,7 @@
             <div class="flex bg-red-200 hover:bg-red-300 shadow-md rounded rounded-lg text-red-900 text-semibold p-3 py-2">
                 {{-- <img src="{{ asset('assets/icons/log-out.svg') }}" alt="" width="24" class="me-2 text-green-400"> --}}
                 <i class="fa-solid fa-power-off me-2 my-auto"></i>
-                <a href="">Logout</a>
+                <a href="{{ route('logout') }}">Logout</a>
             </div>
         </div>
     </div>
