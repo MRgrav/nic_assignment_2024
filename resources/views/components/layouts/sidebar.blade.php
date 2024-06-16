@@ -13,20 +13,20 @@
         
         <ul>
             <x-utils.menu-option current="'home'">
-                <a href="{{ route('home') }}" class="w-full">
-                    <i class="fa-solid fa-gauge me-2 my-auto sm:text-2xl"></i>
+                <a href="{{ route('home') }}" class="w-full truncate">
+                    <i class="fa-solid fa-gauge me-2 my-auto text-2xl"></i>
                     <span class="md:inline-block sm:hidden">Dashboard</span>
                 </a>
             </x-utils.menu-option>
             <x-utils.menu-option :current="'all-schemes'">
-                <a href="{{ route('all-schemes') }}" class="w-full">
-                    <i class="fa-solid fa-file-lines me-2 my-auto sm:text-2xl"></i>
+                <a href="{{ route('all-schemes') }}" class="w-full truncate">
+                    <i class="fa-solid fa-file-lines me-2 my-auto text-2xl"></i>
                     <span class="md:inline-block sm:hidden">Schemes</span>
                 </a>
             </x-utils.menu-option>
             <x-utils.menu-option :current="'profile'">
-                <a href="{{ route('profile') }}" class="w-full">
-                    <i class="fa-solid fa-user me-2 my-auto sm:text-2xl"></i>
+                <a href="{{ route('profile') }}" class="w-full truncate">
+                    <i class="fa-solid fa-user me-2 my-auto text-2xl"></i>
                     <span class="md:inline-block sm:hidden">Profile</span>
                 </a>
             </x-utils.menu-option>
@@ -34,8 +34,8 @@
         <div></div>
         <ul class="mb-4">
             <li class="flex hover:bg-red-100 rounded rounded-lg text-red-900 text-semibold p-3 py-2">
-                <a href="{{ route('logout') }}" class="w-full">
-                    <i class="fa-solid fa-power-off me-2 my-auto sm:text-xl"></i>
+                <a href="{{ route('logout') }}" class="w-full truncate">
+                    <i class="fa-solid fa-power-off me-2 my-auto text-2xl"></i>
                     <span class="md:inline-block sm:hidden my-auto">Logout</span>
                 </a>
             </li>

@@ -13,10 +13,10 @@
                         Admin
                     </div>
                     <!-- Content area -->
-                    <div class="flex">
-                        <div class="flex-1 flex flex-col justify-between w-auto m-2 rounded-lg bg-blue-500 shadow-lg shadow-sky-500 p-5 lg:p-8">
-                            <p class="text-5xl ordinal font-bold text-blue-100">{{ $totalSchemes }}</p>
-                            <p class="text-gray-100 text-end">Total Schemes</p>
+                    <div class="flex md:flex-wrap sm:flex-wrap">
+                        <div class="flex-1 max-w-[200px] aspect-square flex flex-col justify-between w-auto m-2 rounded-lg bg-blue-500 shadow-lg shadow-sky-500 p-5 lg:p-8 hover:text-white">
+                            <p class="text-7xl ordinal font-bold text-blue-100">{{ $totalSchemes }}</p>
+                            <p class="text-gray-100 text-end truncate">Total Schemes</p>
                         </div>
                         <x-utils.white-tile>
                             <p class="text-5xl ordinal font-bold text-blue-800">{{ formatNumberForDisplay($maxTotalDisbursement[0]->total_disbursement)  }}</p>
@@ -25,7 +25,7 @@
                             @else
                                 <p class="text-green-600 font-semibold my-3">{{ abs(round($changeTotalDisbursement)) }}% up</p>
                             @endif
-                            <p class="text-gray-500 text-sm">Total disbursement in {{ $maxTotalDisbursement[0]->financial_year }}</p>
+                            <p class="text-gray-500 text-sm truncate">Total disbursement in {{ $maxTotalDisbursement[0]->financial_year }}</p>
                         </x-utils.white-tile>
                         <x-utils.white-tile>
                             <p class="text-5xl ordinal font-bold text-blue-800">{{ formatNumberForDisplay($maxCentralDisbursement[0]->central_disbursement)  }}</p>
@@ -34,7 +34,7 @@
                             @else
                                 <p class="text-green-600 font-semibold my-3">{{ abs(round($changeCentralDisbursement)) }}% up <i class="fa-solid fa-arrow-trend-up"></i></p>
                             @endif
-                            <p class="text-gray-500 text-sm">Central disbursement in {{ $maxCentralDisbursement[0]->financial_year }}</p>
+                            <p class="text-gray-500 text-sm truncate">Central disbursement in {{ $maxCentralDisbursement[0]->financial_year }}</p>
                         </x-utils.white-tile>
                         <x-utils.white-tile>
                             <p class="text-5xl ordinal font-bold text-blue-800">{{ formatNumberForDisplay($maxStateDisbursement[0]->state_disbursement)  }}</p>
@@ -43,7 +43,7 @@
                             @else
                                 <p class="text-green-500 font-semibold my-3">{{ abs(round($changeStateDisbursement)) }}% up <i class="fa-solid fa-arrow-trend-up"></i></p>
                             @endif
-                            <p class="text-gray-500 text-sm">State disbursement in {{ $maxStateDisbursement[0]->financial_year }}</p>
+                            <p class="text-gray-500 text-sm truncate">State disbursement in {{ $maxStateDisbursement[0]->financial_year }}</p>
                         </x-utils.white-tile>
                     </div>
                     <div class="m-2">
