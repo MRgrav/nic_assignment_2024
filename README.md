@@ -9,6 +9,13 @@ An admin dashboard, that display data from excel file. admin can import and expo
 Login Form
 ![Login Form](https://github.com/MRgrav/nic_assignment_2024/assets/67511840/94e2f8ad-7da2-4af5-9de0-08d2598f24b7)
 
+Dashboard
+![Screenshot_20240616_151839](https://github.com/MRgrav/nic_assignment_2024/assets/67511840/d3b32c25-89a2-4a59-abc9-88849bc8969c)
+
+Schemes
+![Screenshot_20240616_151858](https://github.com/MRgrav/nic_assignment_2024/assets/67511840/4e2cc499-12a6-4066-b8c9-8a024c2dc05a)
+
+
 
 ## Run Locally
 
