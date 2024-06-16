@@ -36,7 +36,7 @@
             <li class="flex hover:bg-red-100 rounded rounded-lg text-red-900 text-semibold p-3 py-2">
                 <a href="{{ route('logout') }}" class="w-full">
                     <i class="fa-solid fa-power-off me-2 my-auto sm:text-xl"></i>
-                    <span class="sm:hidden">Logout</span>
+                    <span class="md:inline-block sm:hidden my-auto">Logout</span>
                 </a>
             </li>
         </ul>
