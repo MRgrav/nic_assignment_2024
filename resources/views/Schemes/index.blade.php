@@ -12,7 +12,7 @@
                         Schemes
                     </div>
 
-                    <div class="w-full bg-gray-50 p-2 ring-1 ring-black ring-opacity-5 overflow-x-auto">
+                    <div class="w-full bg-gray-50 p-2 ring-1 ring-black ring-opacity-5">
                         <div class="flex flex-wrap w-full mb-2">
                             
                             <div class="flex flex-1 justify-end items-center">
@@ -27,34 +27,37 @@
                                 <a id="export-route" href="{{ route('export-schemes') }}" class="hidden"></a>
                             </div>
                         </div>
-                        <table class="table-auto min-w-full divide-gray-400 ">
-                            <thead class="bg-gray-100 uppercase text-gray-600 font-semibold text-sm">
-                                <tr>
-                                    <th class="p-3 text-start">#</th>
-                                    <th class="p-3 text-start">Scheme code</th>
-                                    <th class="p-3 text-start">Scheme name</th>
-                                    <th class="p-3 text-start">Scheme type</th>
-                                    <th class="p-3 text-start">Financial year</th>
-                                    <th class="p-3 text-start">state disbursement</th>
-                                    <th class="p-3 text-start">central disbursement</th>
-                                    <th class="p-3 text-start">total disbursement</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 bg-white text-sm">
-                                @foreach ($schemes as $scheme)
-                                <tr>
-                                    <td class="whitespace-nowrap p-3">{{ $scheme->id }}</td>
-                                    <td class="whitespace-nowrap p-3">{{ $scheme->scheme_code }}</td>
-                                    <td class="whitespace-nowrap p-3 truncate">{{ $scheme->scheme_name }}</td>
-                                    <td class="whitespace-nowrap p-3">{{ $scheme->central_state_scheme }}</td>
-                                    <td class="whitespace-nowrap p-3 tabular-nums">{{ $scheme->financial_year }}</td>
-                                    <td class="whitespace-nowrap p-3 text-end tabular-nums">{{ $scheme->state_disbursement }}</td>
-                                    <td class="whitespace-nowrap p-3 text-end tabular-nums">{{ $scheme->central_disbursement }}</td>
-                                    <td class="whitespace-nowrap p-3 text-end tabular-nums">{{ $scheme->total_disbursement }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <div class="overflow-x-auto">
+                            <table class="table-auto min-w-full divide-gray-400 ">
+                                <thead class="bg-gray-100 uppercase text-gray-600 font-semibold text-sm">
+                                    <tr>
+                                        <th class="p-3 text-start">#</th>
+                                        <th class="p-3 text-start">Scheme code</th>
+                                        <th class="p-3 text-start">Scheme name</th>
+                                        <th class="p-3 text-start">Scheme type</th>
+                                        <th class="p-3 text-start">Financial year</th>
+                                        <th class="p-3 text-start">state disbursement</th>
+                                        <th class="p-3 text-start">central disbursement</th>
+                                        <th class="p-3 text-start">total disbursement</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 bg-white text-sm">
+                                    @foreach ($schemes as $scheme)
+                                    <tr>
+                                        <td class="whitespace-nowrap p-3">{{ $scheme->id }}</td>
+                                        <td class="whitespace-nowrap p-3">{{ $scheme->scheme_code }}</td>
+                                        <td class="whitespace-nowrap p-3 truncate">{{ $scheme->scheme_name }}</td>
+                                        <td class="whitespace-nowrap p-3">{{ $scheme->central_state_scheme }}</td>
+                                        <td class="whitespace-nowrap p-3 tabular-nums">{{ $scheme->financial_year }}</td>
+                                        <td class="whitespace-nowrap p-3 text-end tabular-nums">{{ $scheme->state_disbursement }}</td>
+                                        <td class="whitespace-nowrap p-3 text-end tabular-nums">{{ $scheme->central_disbursement }}</td>
+                                        <td class="whitespace-nowrap p-3 text-end tabular-nums">{{ $scheme->total_disbursement }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        
                         <div class="flex justify-between mt-6 mb-3 px-3">
                             <div class="text-gray-500">
                                 Showing {{ $schemes->firstItem() }} to {{ $schemes->lastItem() }} of {{ $schemes->total() }} entries
