@@ -1,4 +1,6 @@
 
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gaurab-gogoi-3a6746246)
+
 # Admin Dashboard
 
 An admin dashboard, that display data from excel file. admin can import and export the data using the excel file system.
@@ -14,8 +16,6 @@ Dashboard
 
 Schemes
 ![Screenshot_20240616_151858](https://github.com/MRgrav/nic_assignment_2024/assets/67511840/4e2cc499-12a6-4066-b8c9-8a024c2dc05a)
-
-
 
 ## Run Locally
 
@@ -34,7 +34,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  composer Install
+  composer install
 ```
 
 Create .env file
@@ -65,9 +65,21 @@ Start the server
 ```bash
   php artisan serve
 ```
+
+(optional) improve performance
+
+```bash
+  php artisan route:cache
+  php artisan config:cache
+```
 ## Tech Stack
 
 **Client:** Laravel Blade Template, TailwindCSS
 
 **Server:** Laravel 10, PostgreSQL, PHP
+
+
+## Authors
+
+- [@gaurabGogoi](https://github.com/MRgrav)
 
