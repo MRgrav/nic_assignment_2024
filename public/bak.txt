@@ -1,21 +1,3 @@
-$fileName = null;
-        if ($request->file('file')->isValid()) {
-            $file = $request->file('file');
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-            $filePath = $file->storeAs('public/files', $fileName); // store the file in storage/uploads directory
-        }
-
-        // storage/files
-
-        $rows = SimpleExcelReader::create(storage_path().$fileName)->getRows();
-        $rows->each(function(array $row) {
-            User::insert([
-                'scheme_code'           => $row['scheme_code'], 
-                'scheme_name'           => $row['scheme_name'],
-                'central_state_scheme'  => $row['central_state_scheme'],
-                'fin_year'              => $row['financial_year'],
-                'state_disbursement'    => $row['state_disbursement'],
-                'central_disbursement'  => $row['central_disbursement'],
-                'total_disbursement'    => $row['total_disbursement'],
-            ]);
-        });
+<div class="flex flex-initial max-w-[400px] w-full items-center pt-3">
+                                <x-utils.text-input name="search" placeholder="search..." autocomplete="off"/>
+                            </div>

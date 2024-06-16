@@ -5,7 +5,6 @@
 
         <div class="flex-1">
             {{-- <x-layouts.header/> --}}
-            
             <!-- Content -->
             <main class="flex-1">
                 <div class="container mx-auto px-6 lg:px-14 py-8 h-screen">
@@ -13,11 +12,9 @@
                         Schemes
                     </div>
 
-                    <div class="w-full bg-gray-50 p-2 ring-1 ring-black ring-opacity-5">
+                    <div class="w-full bg-gray-50 p-2 ring-1 ring-black ring-opacity-5 overflow-x-auto">
                         <div class="flex flex-wrap w-full mb-2">
-                            <div class="flex flex-initial max-w-[400px] w-full items-center pt-3">
-                                <x-utils.text-input name="search" placeholder="search..." autocomplete="off"/>
-                            </div>
+                            
                             <div class="flex flex-1 justify-end items-center">
                                 <x-utils.green-button id="popup">
                                     <i class="fa fa-angle-down me-1"></i>

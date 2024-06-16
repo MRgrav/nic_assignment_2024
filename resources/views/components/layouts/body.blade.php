@@ -27,6 +27,7 @@
     </script>
 </head>
 <body class="bg-gray-100">
+    <x-utils.alert-message/>
     {{ $slot }}
 </body>
 </html>

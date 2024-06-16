@@ -35,10 +35,10 @@ class AuthController extends Controller
 
         // auto login after successfull registration
         if (Auth::attempt( $request->only('email','password') )) {
-            return redirect()->route('home');
+            return redirect()->route('home')->with(['icon'=>'success','message'=>'Logged in successfully.']);
         }
 
-        return back();
+        return back()->with(['icon'=>'error','message'=>'Wrong credentials.']);
     }
 
     // new admin registration
@@ -71,22 +71,22 @@ class AuthController extends Controller
         ]);
 
         if ( !$isUser ) {
-            return back();
+            return back()->with(['icon'=>'error','message'=>'Something went wrong']);
         }
 
         // auto login after successfull registration
         if (Auth::attempt( $request->only('email','password') )) {
-            return redirect()->route('home');
+            return redirect()->route('home')->with(['icon'=>'success','message'=>'Logged in successfully.']);
         }
 
-        return redirect()->back()->withErrors($request)->withInput();
+        return redirect()->back()->with(['icon'=>'error','message'=>'System error.']);
     }
 
     public function logout() {
         Session::flush();
         Auth::logout();
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with(['icon'=>'success','message'=>'Logged out successfully.']);
     }
 }
 
