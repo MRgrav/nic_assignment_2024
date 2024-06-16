@@ -14,13 +14,15 @@ class TextInput extends Component
     public $name;
     public $placeholder;
     public $id;
+    public $value;
     public $autocomplete;
 
-    public function __construct($name, $id, $placeholder, $autocomplete)
+    public function __construct($name, $id, $value, $placeholder, $autocomplete)
     {
         //
         $this->name = $name;
         $this->id = $id;
+        $this->value = $value;
         $this->placeholder = $placeholder;
         $this->autocomplete = $autocomplete;
     }

@@ -11,9 +11,13 @@ class PhoneInput extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $id;
+    public $value;
+    public function __construct($id, $value)
     {
         //
+        $this->id = $id;
+        $this->value = $value;
     }
 
     /**

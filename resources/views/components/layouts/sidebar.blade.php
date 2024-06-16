@@ -6,13 +6,13 @@
         {{-- <hr class="mb-3 border-emerald-500"> --}}
 
         <div class="flex flex-col items-center mt-4">
-            <img src="https://cdn.pixabay.com/photo/2023/01/28/20/23/ai-generated-7751688_640.jpg" alt="" class="border border-blue-500 rounded-full mb-3 w-[100px] w-[100px] md:w-[100px] md:h-[100px] sm:w-[44px] sm:w-[44px]">
+            <img src="{{ asset('assets/icons/wolf.png') }}" alt="" class="drop-shadow-xl w-[100px] w-[100px] md:w-[100px] md:h-[100px] sm:w-[44px] sm:w-[44px]">
             <p class="text-center text-md mb-1 font-semibold sm:hidden md:block">{{ Auth::user()->name }}</p>
             <p class="text-center text-sm mb-1 font-light sm:hidden md:block">{{ Auth::user()->email }}</p>
         </div>
         
         <ul>
-            <x-utils.menu-option current="'home'">
+            <x-utils.menu-option :current="'home'">
                 <a href="{{ route('home') }}" class="w-full truncate">
                     <i class="fa-solid fa-gauge me-2 my-auto text-2xl"></i>
                     <span class="md:inline-block sm:hidden">Dashboard</span>

@@ -13,22 +13,42 @@
                         Profile
                     </div>
 
-                    <div class="w-full p-2 py-4 ">
+                    <form action="{{ route('profile-update') }}" method="POST" class="w-full p-2 py-4 ">
+                        @csrf
                         <div class="mx-auto flex flex-col max-w-[500px] bg-white shadow-lg border rounded-md p-4">
                             <div class="flex w-full">
                                 <p class="p-2 w-1/2">Name</p>
-                                <p class="p-2 w-1/2">{{ $user->name }}</p>
+                                <x-utils.text-input name="name" placeholder="full name" :value="$user->name" autocomplete="off"/>
+                                @error('name')
+                                    <x-utils.error-message>
+                                        {{ $message }}
+                                    </x-utils.error-message>
+                                @enderror
                             </div>
                             <div class="flex w-full">
                                 <p class="p-2 w-1/2">Email address</p>
-                                <p class="p-2 w-1/2">{{ $user->email }}</p>
+                                <x-utils.email-input name="email" placeholder="email address" :value="$user->email" autocomplete="off"/>
+                                @error('email')
+                                    <x-utils.error-message>
+                                        {{ $message }}
+                                    </x-utils.error-message>
+                                @enderror
                             </div>
                             <div class="flex w-full">
                                 <p class="p-2 w-1/2">Phone Number</p>
-                                <p class="p-2 w-1/2">{{ $user->phone }}</p>
+                                <x-utils.phone-input name="phone" :value="$user->phone" placeholder="full name" autocomplete="off"/>
+                                @error('phone')
+                                    <x-utils.error-message>
+                                        {{ $message }}
+                                    </x-utils.error-message>
+                                @enderror
+                            </div>
+                            <hr>
+                            <div class="mt-3 flex w-full justify-end">
+                                <x-utils.green-button type="submit">Save changes</x-utils.green-button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
                 <x-layouts.footer/>

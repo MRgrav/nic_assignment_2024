@@ -12,11 +12,15 @@ class EmailInput extends Component
      * Create a new component instance.
      */
     public $name;
+    public $value;
+    public $id;
     public $placeholder;
-    public function __construct($name = NULL, $placeholder = NULL)
+    public function __construct($name, $value, $id, $placeholder)
     {
         //
         $this->name = $name;
+        $this->value = $value;
+        $this->id = $id;
         $this->placeholder = $placeholder;
     }
 

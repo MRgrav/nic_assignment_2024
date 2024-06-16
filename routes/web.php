@@ -29,7 +29,11 @@ Route::controller(AuthController::class)->group( function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('home');
 
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    // ProfileController routes
+    Route::controller(ProfileController::class)->group( function () {
+        Route::get('/profile', 'index')->name('profile');
+        Route::post('/profile/update', 'update')->name('profile-update');
+    });
 
    // SchemeController routes
     Route::controller(SchemeController::class)->group( function() {
