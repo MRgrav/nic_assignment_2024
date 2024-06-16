@@ -7,6 +7,8 @@
                 <div class="w-full mb-5">
                     <h1 class="text-3xl text-sky-700 font-semibold">Registration</h1>
                 </div>
+
+                {{-- admin/user's name --}}
                 <div>
                     <label for="" class="w-full text-sm">Full Name</label>
                     <x-utils.text-input name="name" placeholder="full name" autocomplete="off"/>
@@ -16,6 +18,8 @@
                         </x-utils.error-message>
                     @enderror
                 </div>
+
+                {{-- phone number --}}
                 <div>
                     <label for="" class="w-full text-sm">Phone No.</label>
                     <x-utils.phone-input name="phone" placeholder="full name" autocomplete="off"/>
@@ -25,6 +29,8 @@
                         </x-utils.error-message>
                     @enderror
                 </div>
+
+                {{-- email address --}}
                 <div>
                     <label for="" class="w-full text-sm">Email ID</label>
                     <x-utils.email-input name="email" placeholder="email id/user id" autocomplete="off"/>
@@ -34,6 +40,8 @@
                         </x-utils.error-message>
                     @enderror
                 </div>
+
+                {{-- password --}}
                 <div>
                     <label for="" class="w-full text-sm">Password</label>
                     <x-utils.password-input name="password" placeholder="password"/>
@@ -43,6 +51,8 @@
                         </x-utils.error-message>
                     @enderror
                 </div>
+
+                {{-- confirm password --}}
                 <div class="mb-3">
                     <label for="" class="w-full text-sm">Confirm password</label>
                     <x-utils.password-input name="confirmPassword" placeholder="confirm password"/>

@@ -7,12 +7,13 @@
 
 <script>
     var {{$name}} = document.getElementById('{{ $name }}');
-
     var {{$name}}Status = document.getElementById('{{ $name }}-status');
+
+    // toggle password type
     {{$name}}Status.addEventListener('click', () => {
         if ( {{$name}}.type === "password" ) {
             {{$name}}.type = "text";
-            {{$name}}Status.src = "{{ asset('assets/icons/eye.svg') }}"
+            {{$name}}Status.src = "{{ asset('assets/icons/eye.svg') }}";
         } else {
             {{$name}}.type = "password";
             {{$name}}Status.src = "{{ asset('assets/icons/crossed-eye.svg') }}";

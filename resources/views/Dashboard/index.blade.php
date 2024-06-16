@@ -14,10 +14,14 @@
                     </div>
                     <!-- Content area -->
                     <div class="flex md:flex-wrap sm:flex-wrap">
+
+                        {{-- total scheme count --}}
                         <div class="flex-1 max-w-[200px] aspect-square flex flex-col justify-between w-auto m-2 rounded-lg bg-blue-500 shadow-lg shadow-sky-500 p-5 lg:p-8 hover:text-white">
                             <p class="text-7xl ordinal font-bold text-blue-100">{{ $totalSchemes }}</p>
                             <p class="text-gray-100 text-end truncate">Total Schemes</p>
                         </div>
+
+                        {{-- total disbursement tile of latest/current financial year --}}
                         <x-utils.white-tile>
                             <p class="text-5xl ordinal font-bold text-blue-800">{{ formatNumberForDisplay($maxTotalDisbursement[0]->total_disbursement)  }}</p>
                             @if ( $changeTotalDisbursement <= 0 )
@@ -27,6 +31,8 @@
                             @endif
                             <p class="text-gray-500 text-sm truncate">Total disbursement in {{ $maxTotalDisbursement[0]->financial_year }}</p>
                         </x-utils.white-tile>
+
+                        {{-- central disbursement tile of latest/current financial year --}}
                         <x-utils.white-tile>
                             <p class="text-5xl ordinal font-bold text-blue-800">{{ formatNumberForDisplay($maxCentralDisbursement[0]->central_disbursement)  }}</p>
                             @if ( $changeCentralDisbursement <= 0 )
@@ -36,6 +42,8 @@
                             @endif
                             <p class="text-gray-500 text-sm truncate">Central disbursement in {{ $maxCentralDisbursement[0]->financial_year }}</p>
                         </x-utils.white-tile>
+
+                        {{-- state disbursement tile of latest/current financial year --}}
                         <x-utils.white-tile>
                             <p class="text-5xl ordinal font-bold text-blue-800">{{ formatNumberForDisplay($maxStateDisbursement[0]->state_disbursement)  }}</p>
                             @if ( $changeStateDisbursement <= 0 )
@@ -47,6 +55,7 @@
                         </x-utils.white-tile>
                     </div>
                     <div class="m-2">
+                        {{-- bar chart of latest/current financial year with schemes --}}
                         <div class="w-full p-4 my-6 shadow-lg bg-white">
                             <canvas id="myBarChart" height="100"></canvas>
                         </div>

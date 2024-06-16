@@ -1,10 +1,8 @@
 <x-layouts.body>
-    {{-- {{ dd($schemes); }} --}}
     <div class="flex">
         <x-layouts.sidebar/>
 
         <div class="flex-1">
-            {{-- <x-layouts.header/> --}}
             <!-- Content -->
             <main class="flex-1">
                 <div class="container mx-auto px-6 lg:px-14 py-8 h-screen">
@@ -16,10 +14,12 @@
                         <div class="flex flex-wrap w-full mb-2">
                             
                             <div class="flex flex-1 justify-end items-center">
+                                {{-- import button --}}
                                 <x-utils.green-button id="popup">
                                     <i class="fa fa-angle-down me-1"></i>
                                     import
                                 </x-utils.green-button>
+                                {{-- export or download button --}}
                                 <x-utils.blue-button id="export">
                                     <i class="fa fa-angle-up me-1"></i>
                                     export
@@ -35,20 +35,20 @@
                                         <th class="p-3 text-start">Scheme code</th>
                                         <th class="p-3 text-start">Scheme name</th>
                                         <th class="p-3 text-start">Scheme type</th>
-                                        <th class="p-3 text-start">Financial year</th>
-                                        <th class="p-3 text-start">state disbursement</th>
-                                        <th class="p-3 text-start">central disbursement</th>
-                                        <th class="p-3 text-start">total disbursement</th>
+                                        <th class="p-3 text-center">Financial year</th>
+                                        <th class="p-3 text-end">state disbursement</th>
+                                        <th class="p-3 text-end">central disbursement</th>
+                                        <th class="p-3 text-end">total disbursement</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 bg-white text-sm">
                                     @foreach ($schemes as $scheme)
                                     <tr>
-                                        <td class="whitespace-nowrap p-3">{{ $scheme->id }}</td>
+                                        <td class="whitespace-nowrap p-3 font-semibold">{{ $scheme->id }}</td>
                                         <td class="whitespace-nowrap p-3">{{ $scheme->scheme_code }}</td>
-                                        <td class="whitespace-nowrap p-3 truncate">{{ $scheme->scheme_name }}</td>
+                                        <td class="whitespace-nowrap p-3 truncate max-w-[300px]">{{ $scheme->scheme_name }}</td>
                                         <td class="whitespace-nowrap p-3">{{ $scheme->central_state_scheme }}</td>
-                                        <td class="whitespace-nowrap p-3 tabular-nums">{{ $scheme->financial_year }}</td>
+                                        <td class="whitespace-nowrap p-3 text-center tabular-nums">{{ $scheme->financial_year }}</td>
                                         <td class="whitespace-nowrap p-3 text-end tabular-nums">{{ $scheme->state_disbursement }}</td>
                                         <td class="whitespace-nowrap p-3 text-end tabular-nums">{{ $scheme->central_disbursement }}</td>
                                         <td class="whitespace-nowrap p-3 text-end tabular-nums">{{ $scheme->total_disbursement }}</td>
@@ -59,15 +59,18 @@
                         </div>
                         
                         <div class="flex justify-between mt-6 mb-3 px-3">
+                            {{-- current pagination page details --}}
                             <div class="text-gray-500">
                                 Showing {{ $schemes->firstItem() }} to {{ $schemes->lastItem() }} of {{ $schemes->total() }} entries
                             </div>
                             <div class="flex">
+                                {{-- previous page button --}}
                                 @if ($schemes->onFirstPage())
                                     <span class="px-2 py-1 rounded-l-md text-gray-500 cursor-not-allowed bg-gray-200">Previous</span>
                                 @else
                                     <a href="{{ $schemes->previousPageUrl() }}" class="px-2 py-1 rounded-l-md hover:bg-gray-100 text-indigo-500">Previous</a>
                                 @endif
+                                {{-- all pages buttons --}}
                                 @for ($i = 1; $i <= $schemes->lastPage(); $i++)
                                     @if ($i === $schemes->currentPage())
                                         <span class="px-2 py-1 bg-indigo-500 text-white">{{ $i }}</span>
@@ -75,6 +78,7 @@
                                         <a href="{{ $schemes->url($i) }}" class="px-2 py-1 border hover:bg-gray-100 text-indigo-500 ">{{ $i }}</a>
                                     @endif
                                 @endfor
+                                {{-- next page button --}}
                                 @if ($schemes->hasMorePages())
                                     <a href="{{ $schemes->nextPageUrl() }}" class="px-2 py-1 rounded-r-md bg-gray-200 text-indigo-500">Next</a>
                                 @else
@@ -90,6 +94,7 @@
         </div>
     </div>
     <x-utils.popup>
+        {{-- excel file import form --}}
         <form action="{{ route('import-schemes') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="border-b-2 border-gray-400">
@@ -104,8 +109,9 @@
                 @enderror
             </div>
         </form>
-        <div id="excelPreview" class="flex p-2">
-
+        {{-- preview of excel file before uploading --}}
+        <div id="excelPreview" class="flex p-2 max-h-[80vh] max-w-[90vw] overflow-auto">
+            {{-- preview --}}
         </div>
     </x-utils.popup>
     

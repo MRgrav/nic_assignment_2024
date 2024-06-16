@@ -1,10 +1,8 @@
 <x-layouts.body>
-    {{-- {{ dd($schemes); }} --}}
     <div class="flex">
         <x-layouts.sidebar/>
 
         <div class="flex-1">
-            {{-- <x-layouts.header/> --}}
             
             <!-- Content -->
             <main class="flex-1">
@@ -16,6 +14,7 @@
                     <form action="{{ route('profile-update') }}" method="POST" class="w-full p-2 py-4 ">
                         @csrf
                         <div class="mx-auto flex flex-col max-w-[500px] bg-white shadow-lg border rounded-md p-4">
+                            {{-- user/admin's name --}}
                             <div class="flex w-full">
                                 <p class="p-2 w-1/2">Name</p>
                                 <x-utils.text-input name="name" placeholder="full name" :value="$user->name" autocomplete="off"/>
@@ -25,6 +24,8 @@
                                     </x-utils.error-message>
                                 @enderror
                             </div>
+
+                            {{-- email address --}}
                             <div class="flex w-full">
                                 <p class="p-2 w-1/2">Email address</p>
                                 <x-utils.email-input name="email" placeholder="email address" :value="$user->email" autocomplete="off"/>
@@ -34,6 +35,8 @@
                                     </x-utils.error-message>
                                 @enderror
                             </div>
+
+                            {{-- phone number --}}
                             <div class="flex w-full">
                                 <p class="p-2 w-1/2">Phone Number</p>
                                 <x-utils.phone-input name="phone" :value="$user->phone" placeholder="full name" autocomplete="off"/>
@@ -55,8 +58,5 @@
             </main>
         </div>
     </div>
-    <x-utils.popup>
-
-    </x-utils.popup>
 
 </x-layouts.body>
