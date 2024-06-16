@@ -12,24 +12,24 @@
         </div>
         
         <ul>
-            <li class="flex mb-3 p-2 hover:bg-sky-300 hover:text-blue-700 rounded  @if (Route::currentRouteName() === 'home') bg-sky-300 @endif">
+            <x-utils.menu-option current="'home'">
                 <a href="{{ route('home') }}" class="w-full">
                     <i class="fa-solid fa-gauge me-2 my-auto sm:text-2xl"></i>
                     <span class="md:inline-block sm:hidden">Dashboard</span>
                 </a>
-            </li>
-            <li class="flex mb-3  p-2 hover:bg-sky-300 hover:text-blue-700 rounded  @if (Route::currentRouteName() === 'all-schemes') bg-sky-300 @endif">
+            </x-utils.menu-option>
+            <x-utils.menu-option :current="'all-schemes'">
                 <a href="{{ route('all-schemes') }}" class="w-full">
                     <i class="fa-solid fa-file-lines me-2 my-auto sm:text-2xl"></i>
                     <span class="md:inline-block sm:hidden">Schemes</span>
                 </a>
-            </li>
-            <li class="flex mb-3 p-2 hover:bg-sky-300 hover:text-blue-700 rounded">
-                <a href="" class="w-full">
+            </x-utils.menu-option>
+            <x-utils.menu-option :current="'profile'">
+                <a href="{{ route('profile') }}" class="w-full">
                     <i class="fa-solid fa-user me-2 my-auto sm:text-2xl"></i>
                     <span class="md:inline-block sm:hidden">Profile</span>
                 </a>
-            </li>
+            </x-utils.menu-option>
         </ul>
         <div></div>
         <ul class="mb-4">
